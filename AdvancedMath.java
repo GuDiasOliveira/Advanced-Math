@@ -52,4 +52,25 @@ public class AdvancedMath {
 		}
 		return res;
 	}
+	
+	/**
+	 * Count what is the precision (number of decimal places) of the <code>num</code>
+	 * @param num the number to be counted the precision
+	 * @return How many decimal places does the number have
+	 */
+	public static int decimalPlaces(double num) {
+		int decimalPlaces = 0;
+		while (num - ((int) num) != 0) {
+			decimalPlaces++;
+			num *= 10;
+		}
+		return decimalPlaces;
+	}
+	
+	public static double round(double n, int decimalPlaces) {
+		double base10 = 1;
+		for (int i = 0; i < decimalPlaces; i++)
+			base10 *= 10;
+        return Math.round(n * base10) / base10;
+    }
 }
